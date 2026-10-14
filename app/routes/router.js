@@ -19,11 +19,11 @@ router.get("/", (req, res) =>{
 
 router.post("/resultado",
     body("email").isEmail().notEmpty()
-    .withMessage("Coloque um email valido!"),
+    .withMessage("Coloque um email que seja valido!"),
     body("nome").isLength({min:3, max:50}).notEmpty().isAlpha()
-    .withMessage("O nome deve conter de 3 a 50 caracets"),
+    .withMessage("O nome deve conter de 3 a 50 caracteres!"),
     body("telefone").isMobilePhone().notEmpty()
-    .withMessage("Coloque um telefone valido"), (req, res)=>{
+    .withMessage("Coloque um telefone que seja válido!"), (req, res)=>{
         
         const errors = validationResult(req);
      if (!errors.isEmpty()){
