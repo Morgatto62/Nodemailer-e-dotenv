@@ -23,7 +23,10 @@ router.post("/resultado",
     body("nome").isLength({min:3, max:50}).notEmpty().isAlpha()
     .withMessage("O nome deve conter de 3 a 50 caracteres!"),
     body("telefone").isMobilePhone().notEmpty()
-    .withMessage("Coloque um telefone que seja válido!"), (req, res)=>{
+    .withMessage("Coloque um telefone que seja válido!"), 
+    body("nome").isLength({min:3, max:100}).notEmpty().isAlpha()
+    .withMessage("O assunto deve conter de 3 a 100 caracteres!"), (req, res)=>{
+    
         
         const errors = validationResult(req);
      if (!errors.isEmpty()){
@@ -31,7 +34,7 @@ router.post("/resultado",
           return res.render("pages/index", {"erros":errors, "valores":req.body, "resultado":req.body});
      }
     
-    const mailOptions = {
+    const mailOptions = { 
     from: process.env.EMAIL_USER,
     to: req.body.email ,
     subject: req.body.assunto,

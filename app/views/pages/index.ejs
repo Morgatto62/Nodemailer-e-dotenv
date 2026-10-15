@@ -9,8 +9,8 @@
 <body>
 <% 
 
-    let erroValidacao = {"email":"", "nome":"", "telefone":""};
-    let msgErro = {"email":"", "nome":"", "telefone":""};
+    let erroValidacao = {"email":"", "nome":"", "telefone":"", "assunto":""};
+    let msgErro = {"email":"", "nome":"", "telefone":"", "assunto":""};
     if(erros) {
         erros.errors.forEach(function(erro){
     if (erro.path == "email"){
@@ -22,7 +22,9 @@
     }if (erro.path == "telefone"){
         erroValidacao.telefone = "erro",
         msgErro.telefone = erro.msg
-    }
+    }if (erro.path == "assunto"){
+        erroValidacao.assunto = "erro",
+        msgErro.assunto = erro.msg
 })
 }
 
