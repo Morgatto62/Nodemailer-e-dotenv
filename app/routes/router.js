@@ -24,7 +24,7 @@ router.post("/resultado",
     .withMessage("O nome deve conter de 3 a 50 caracteres!"),
     body("telefone").isMobilePhone().notEmpty()
     .withMessage("Coloque um telefone que seja válido!"), 
-    body("nome").isLength({min:3, max:100}).notEmpty().isAlpha()
+    body("assunto").isLength({min:3, max:100}).notEmpty().isAlpha()
     .withMessage("O assunto deve conter de 3 a 100 caracteres!"), (req, res)=>{
     
         
